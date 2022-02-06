@@ -14,7 +14,7 @@ ENV PYTHONPATH=/etc/superset
 RUN superset db upgrade
 RUN export FLASK_APP=superset && \
       superset fab create-admin --username admin --firstname admin --lastname gmt --email admin@gmt.com --password 123 && \
-      #superset load_examples && \
+      superset load_examples && \
       superset init
       
 ENTRYPOINT [ "superset", "run", "-h", "0.0.0.0", "-p", "8088", "--with-threads", "--reload", "--debugger" ]
