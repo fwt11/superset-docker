@@ -7,7 +7,7 @@ RUN echo deb https://mirrors.tuna.tsinghua.edu.cn/debian/ bullseye main contrib 
     echo deb https://mirrors.tuna.tsinghua.edu.cn/debian-security bullseye-security main contrib non-free >> /etc/apt/sources.list  
 RUN apt-get update && apt-get install -y build-essential libssl-dev libffi-dev libsasl2-dev libldap2-dev libmariadb-dev-compat libpq-dev
 RUN pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
-RUN pip install Pillow apache-superset mysqlclient psycopg2
+RUN pip install Pillow apache-superset mysqlclient psycopg2 clickhouse-driver==0.2.0 clickhouse-sqlalchemy==0.1.8
 RUN mkdir -p /etc/superset 
 ADD superset_config.py /etc/superset
 ENV PYTHONPATH=/etc/superset
